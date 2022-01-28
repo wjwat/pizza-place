@@ -58,7 +58,8 @@
 
 | Test | Code | Expected Output |
 | ---- | ---- | --------------- |
-| Method should return a total price for all items currently contained in Object instance | ```let myPizza = new Pizza(); let o = new Order(name, tel, myPizza)``` | ```o.getTotalPrice() === 7 // true``` |
+| Method should return a total price for all items currently contained in Object instance | ```let myPizza = new Pizza(); let o = new Order(name, tel, [myPizza])``` | ```o.getTotalPrice() === 7 // true``` |
+| Method should return a total price for all items currently contained in Object instance | ```let m1 = new Pizza(); let m2 = new Pizza(); let o = new Order(name, tel [m1, m2]);``` | ```o.getTotalPrice() === 14 // true``` |
 
 ## :lady_beetle: Known Bugs
 
