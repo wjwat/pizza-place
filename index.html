@@ -21,18 +21,23 @@
   <main>
     <h2>BUY A PIZZA ALREADY</h2>
     <form>
-      <label>Name:
-        <input type='text' id='customer-name'>
-      </label>
-      <label>Phone Number:
-        <input type='tel' id='customer-tel'>
-      </label>
-      <div id='pizza-sizes'></div>
-      <div id='pizza-sauces'></div>
-      <div id='pizza-cheeses'></div>
-      <div id='pizza-toppings'></div>
-      <button type='button' id='add-to-order'>Add to Order</button>
-      <button type='button' id='finish-order'>Finish Order</button>
+      <fieldset>
+        <label>Name:
+          <input type='text' id='customer-name'>
+        </label>
+        <label>Phone Number:
+          <input type='tel' id='customer-tel'>
+        </label>
+        <button type='button' id='start-order'>Start Order</button>
+      </fieldset>
+      <fieldset id='pizza-order'>
+        <div id='pizza-sizes'></div>
+        <div id='pizza-sauces'></div>
+        <div id='pizza-cheeses'></div>
+        <div id='pizza-toppings'></div>
+        <button type='button' id='add-to-order'>Add to Order</button>
+        <button type='button' id='finish-order'>Finish Order</button>
+      </fieldset>
     </form>
     <h5>Running total: <span id='running-total'></span></h5>
   </main>
