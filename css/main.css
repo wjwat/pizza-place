@@ -36,6 +36,15 @@ body {
   font-family: var(--font-family);
 }
 
+form {
+  overflow: hidden;
+}
+
+button {
+  margin-top: 1rem;
+  float: right;
+}
+
 footer {
   min-height: 5em;
 }
