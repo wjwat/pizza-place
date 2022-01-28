@@ -45,6 +45,10 @@ button {
   float: right;
 }
 
+#pizza-toppings {
+  columns: 3;
+}
+
 footer {
   min-height: 5em;
 }
