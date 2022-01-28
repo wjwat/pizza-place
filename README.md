@@ -1,8 +1,8 @@
-# A Pizza Place
+# Blue Monday Pizza Parlor
 
 #### By [Will W.](https://wjwat.com/)
 
-#### _Epicodus Independent Project Week 4_ -- 
+#### _Epicodus Independent Project Week 4_ -- Creating a pizza order form with objects!
 
 ## :computer: Technologies Used
 
@@ -10,7 +10,7 @@
 * Javascript
   - [YACCK](https://sphars.github.io/yacck/)
   - [JQuery](https://jquery.com/)
-* 
+* My cat _Risky Business_-ing his way across the keyboard.
 
 ## :memo: Description
 
@@ -66,6 +66,12 @@
 | Test | Code | Expected Output |
 | ---- | ---- | --------------- |
 | Method accepts an array of items to add to current Order object | ```let p = new Pizza(); let o = new Order(); o.addItems([p]);``` | ```o.items[0] === n // true``` |
+
+### itemSpan()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| Accepts a string, and returns that string wrapped in a span element with a class of 'items' | ```let x = itemSpan('pizza')``` | ```x === '<span class='items'>pizza</span>'``` |
 
 ## :lady_beetle: Known Bugs
 
