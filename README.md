@@ -1,0 +1,43 @@
+# A Pizza Place
+
+#### By [Will W.](https://wjwat.com/)
+
+#### _Epicodus Independent Project Week 4_ -- 
+
+## :computer: Technologies Used
+
+* HTML & CSS
+* Javascript
+  - [YACCK](https://sphars.github.io/yacck/)
+  - [JQuery](https://jquery.com/)
+* 
+
+## :memo: Description
+
+## :gear: Setup/Installation & Usage Instructions
+
+- Go to !!!URL!!! in any modern browser.
+
+*or*
+
+- [Clone this repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to your device
+- Using the [file manager](https://www.lifewire.com/what-is-a-file-manager-4589189) on your system browse to where you've cloned the repo
+- Open `index.html` using your file manager and a browser of your choice
+
+*then*
+
+- !!!WRITE SOME INSTRUCTIONS!!!
+
+## :clipboard: Specifications
+
+### 
+
+## :lady_beetle: Known Bugs
+
+* If any others are found please feel free to open an issue or email me at wjwat at onionslice dot org
+
+## :warning: License
+
+MIT License
+
+Copyright (c) 2022 William Watkins  ♨o(>_<)o♨

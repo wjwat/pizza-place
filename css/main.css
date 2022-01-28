@@ -1,0 +1,50 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+      /* Colors */
+    --color-primary: #d8dee9;
+    --color-secondary: #e5e9f0;
+    --color-thirdly: #eceff4;
+    --color-primary-tint: #6472b1;
+    --color-accent: #ffa630;
+    --color-gray: #f8f8f8;
+    --color-med-gray: #828489;
+    --color-light-gray: #3f4045;
+    --color-bg: #4c566a;
+    --color-bg-med: #ececec;
+
+    /* Fonts */
+    --font-color-dark: #f8f8f8;
+    --font-color-light: #272727;
+    --font-color-med: #6e7075;
+
+  }
+}
+
+:root {
+  --font-family: 'Roboto Mono', monospace, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main, body > header div {
+  max-width: 40rem;
+}
+
+body > footer div {
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+footer {
+  min-height: 5em;
+}
+
+footer div p {
+  margin: auto;
+  text-align: right;
+}
+
+#lilguy:hover:after {
+  content: " <(HOT PIES COMIN' AT YA!)"
+}
