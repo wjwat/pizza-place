@@ -75,6 +75,10 @@ input[disabled] {
   columns: 2;
 }
 
+.items {
+  color: #F24949;
+}
+
 footer {
   min-height: 5em;
 }

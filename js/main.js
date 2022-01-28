@@ -30,7 +30,7 @@ const PizzaParlor = {
     pineapple: 15,
     catnip: 0
   }
-}
+};
 
 function Pizza(size, sauce, cheese, toppings) {
   this.size = size || 'medium';
@@ -102,7 +102,9 @@ function createCheckBoxes(options) {
   return retString;
 }
 
-let newOrder = new Order();
+function itemSpan(str) {
+  return `<span class='items'>${str.toUpperCase()}</span>`
+}
 
 function startPizzaOrdering() {
   $('#pizza-order, #start-order').toggle();
@@ -141,12 +143,17 @@ function addPizzaToOrder() {
 function updateRunningTotal() {
   let pizzaList = '';
   $('#receipt').show();
-  $('#running-total').text(newOrder.getTotalPrice());
+  $('#running-total').text('$' + newOrder.getTotalPrice().toFixed(2));
 
   newOrder.items.forEach(i => {
     pizzaList += '<li>'
-    pizzaList += ``
-    console.log(i);
+    pizzaList += `${itemSpan(i.size)} pizza, ${itemSpan(i.sauce)} base, ${itemSpan(i.cheese)} cheese`;
+
+    if (i.toppings != 0) {
+      pizzaList += ', and '
+      pizzaList += i.toppings.map(upper => itemSpan(upper)).join(', ');
+    }
+    pizzaList += '.</li>';
   });
 
   $('#list-of-pizzas').html(pizzaList);
@@ -159,6 +166,8 @@ function attachListeners() {
   });
   $('#add-to-order').on('click', addPizzaToOrder);
 }
+
+let newOrder = new Order();
 
 $(document).ready(function() {
   attachListeners();
