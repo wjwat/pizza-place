@@ -1,6 +1,6 @@
 const Sizes = {
-  small: .75,
   medium: 1,
+  small: .75,
   large: 1.25
 };
 const Sauces = {
@@ -48,13 +48,27 @@ Pizza.prototype.getPrice = function () {
   return tempTotal;
 }
 
+function createSelectTag(id, name, optsArray) {
+  let retString = `<label for='${id}'>${name}</label><select id='${id}' name='${name}'>`;
+
+  optsArray.forEach(o => {
+    retString += `<option value=${o}>${o.toUpperCase()}</option>`;
+  });
+  retString += `</select>`
+
+  return retString;
+};
+
 // UI
 function createPizzaSelection() {
   // create them bad boys!
+  $('#pizza-sizes').html(createSelectTag('sizes', 'Pizza Sizes', Object.keys(Sizes)));
+  $('#pizza-sauces').html(createSelectTag('sauces', 'Pizza Sauces', Object.keys(Sauces)));
+  $('#pizza-cheeses').html(createSelectTag('cheeses', 'Pizza Cheeses', Object.keys(Cheeses)));
 };
 
 function attachListeners() {
-  // attack them bad boys
+  // attach them bad boys
 };
 
 $(document).ready(function() {
