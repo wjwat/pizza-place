@@ -33,6 +33,21 @@ function Pizza(size, sauce, cheese, toppings) {
   this.basePrice = 7;
 };
 
+Pizza.prototype.getPrice = function () {
+  let tempTotal = this.basePrice;
+
+  tempTotal += Sauces[this.sauce];
+  tempTotal += Cheeses[this.cheese];
+
+  this.toppings.forEach(top => {
+    tempTotal += Toppings[top];
+  })
+
+  tempTotal *= Sizes[this.size];
+
+  return tempTotal;
+}
+
 // UI
 function createPizzaSelection() {
   // create them bad boys!
@@ -46,3 +61,7 @@ $(document).ready(function() {
   createPizzaSelection();
   attachListeners();
 });
+
+let n = new Pizza();
+console.log(n);
+console.log(n.getPrice());
