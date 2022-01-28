@@ -54,25 +54,44 @@ function createSelectTag(id, name, optsArray) {
   optsArray.forEach(o => {
     retString += `<option value='${o}'>${o.toUpperCase()}</option>`;
   });
-  retString += `</select>`
+  retString += `</select>`;
+
+  return retString;
+};
+
+function createCheckBoxes(id, name, optsArray) {
+  let retString = '';
+
+  optsArray.forEach(o => {
+    console.log(o);
+    retString += `<label><input type='checkbox' id='${o}'>${o.toUpperCase()}</label>`
+  });
 
   return retString;
 };
 
 // UI
+function startPizzaOrdering() {
+  $('#pizza-order, #start-order').toggle();
+  $('#customer-name, #customer-tel').prop('disabled', true)
+  createPizzaSelection();
+}
+
 function createPizzaSelection() {
-  // create them bad boys!
   $('#pizza-sizes').html(createSelectTag('sizes', 'Pizza Sizes', Object.keys(Sizes)));
   $('#pizza-sauces').html(createSelectTag('sauces', 'Pizza Sauces', Object.keys(Sauces)));
   $('#pizza-cheeses').html(createSelectTag('cheeses', 'Pizza Cheeses', Object.keys(Cheeses)));
+  $('#pizza-toppings').html(createCheckBoxes('toppings', 'Pizza Toppings', Object.keys(Toppings)));
 };
 
 function attachListeners() {
-  // attach them bad boys
+  $('form').on('submit', e => {
+    e.preventDefault();
+    startPizzaOrdering();
+  });
 };
 
 $(document).ready(function() {
-  createPizzaSelection();
   attachListeners();
 });
 

@@ -49,6 +49,14 @@ button {
   float: right;
 }
 
+input[disabled] {
+  background-color: #A2AECB;
+}
+
+#pizza-order {
+  display: none;
+}
+
 #pizza-toppings {
   columns: 3;
 }
