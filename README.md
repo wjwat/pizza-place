@@ -39,6 +39,13 @@
 | Constructor should set sane defaults for an object (medium, tomato, blend, []) instantiated with no arguments | ```let myPizza = new Pizza()``` | ```Pizza {size: 'medium', sauce: 'tomato', cheese: 'blend', toppings: []}``` |
 | Constructor should set a base price for a default Pizza object | ```let myPizza = new Pizza()``` | ```myPizza.basePrice === 7; // true``` |
 
+#### Pizza.getPrice()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| A pizza object created with default selections should return a total price of 7 | ```myPizza.getPrice()``` | ```myPizza.getPrice() === 7 // true``` |
+
+
 ## :lady_beetle: Known Bugs
 
 * If any others are found please feel free to open an issue or email me at wjwat at onionslice dot org
