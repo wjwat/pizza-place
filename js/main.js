@@ -1,7 +1,8 @@
+const BasePrice = 7;
 const Sizes = {
-  medium: 1,
-  small: 0.75,
-  large: 1.25
+  small: BasePrice * 0.75,
+  medium: BasePrice,
+  large: BasePrice * 1.25
 };
 const Sauces = {
   tomato: 0,
@@ -23,8 +24,10 @@ const Toppings = {
   'black olives': 0.5,
   'spicy peppers': 0.5,
   'baked beans': 0.25,
+  mushrooms: 0.25,
   pickles: 10,
-  pineapple: 15
+  pineapple: 15,
+  catnip: 0
 };
 
 function Pizza(size, sauce, cheese, toppings) {
@@ -32,7 +35,7 @@ function Pizza(size, sauce, cheese, toppings) {
   this.sauce = sauce || 'tomato';
   this.cheese = cheese || 'blend';
   this.toppings = toppings || [];
-  this.basePrice = 7;
+  this.basePrice = BasePrice[this.size];
 }
 
 Pizza.prototype.getPrice = function () {
@@ -67,12 +70,16 @@ Order.prototype.getTotalPrice = function() {
   return tempTotal;
 };
 
-function createSelectTag(id, name, optsArray) {
+function createSelectTag(id, name, options) {
   let retString = `<label for='${id}'>${name}</label><select id='${id}' name='${name}'>`;
 
-  optsArray.forEach(o => {
-    retString += `<option value='${o}'>${o.toUpperCase()}</option>`;
+  console.log(options);
+  Object.entries(options).forEach(([k, v]) => {
+    console.log(k, v);
   });
+  // optsArray.forEach(o => {
+  //   retString += `<option value='${o}'>${o.toUpperCase()}</option>`;
+  // });
   retString += `</select>`;
 
   return retString;
@@ -96,9 +103,9 @@ function startPizzaOrdering() {
 }
 
 function createPizzaSelection() {
-  $('#pizza-sizes').html(createSelectTag('sizes', 'Pizza Sizes', Object.keys(Sizes)));
-  $('#pizza-sauces').html(createSelectTag('sauces', 'Pizza Sauces', Object.keys(Sauces)));
-  $('#pizza-cheeses').html(createSelectTag('cheeses', 'Pizza Cheeses', Object.keys(Cheeses)));
+  $('#pizza-sizes').html(createSelectTag('sizes', 'Pizza Sizes', Sizes));
+  $('#pizza-sauces').html(createSelectTag('sauces', 'Pizza Sauces', Sauces));
+  $('#pizza-cheeses').html(createSelectTag('cheeses', 'Pizza Cheeses', Cheeses));
   $('#pizza-toppings').html(createCheckBoxes(Object.keys(Toppings)));
 }
 
@@ -107,6 +114,7 @@ function attachListeners() {
     e.preventDefault();
     startPizzaOrdering();
   });
+  // $('#add-to-order').on('click');
 }
 
 $(document).ready(function() {
