@@ -44,6 +44,7 @@
 | Test | Code | Expected Output |
 | ---- | ---- | --------------- |
 | A pizza object created with default selections should return a total price of 7 | ```myPizza.getPrice()``` | ```myPizza.getPrice() === 7 // true``` |
+| A pizza object created with a size of `large` should, and all other options default, should return a total price of 8.75 | ```let p2 = new Pizza('large')``` | ```p2.getPrice() === 8.75 // true``` |
 
 
 ## :lady_beetle: Known Bugs
