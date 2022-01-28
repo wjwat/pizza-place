@@ -61,6 +61,12 @@
 | Method should return a total price for all items currently contained in Object instance | ```let myPizza = new Pizza(); let o = new Order(name, tel, [myPizza])``` | ```o.getTotalPrice() === 7 // true``` |
 | Method should return a total price for all items currently contained in Object instance | ```let m1 = new Pizza(); let m2 = new Pizza(); let o = new Order(name, tel [m1, m2]);``` | ```o.getTotalPrice() === 14 // true``` |
 
+#### Order.addItems()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| Method accepts an array of items to add to current Order object | ```let p = new Pizza(); let o = new Order(); o.addItems([p]);``` | ```o.items[0] === n // true``` |
+
 ## :lady_beetle: Known Bugs
 
 TODO: Add bugs I know about
