@@ -1,51 +1,53 @@
-const BasePrice = 7;
-const Sizes = {
-  small: BasePrice * 0.75,
-  medium: BasePrice,
-  large: BasePrice * 1.25
-};
-const Sauces = {
-  tomato: 0,
-  pesto: 1.25,
-  bbq: 1,
-  'olive oil': 1.25
-};
-const Cheeses = {
-  blend: 0,
-  double: 2,
-  vegan: 1
-};
-const Toppings = {
-  pepperoni: 1,
-  sausage: 1,
-  ham: 1,
-  'bell pepper': 0.5,
-  'red onion': 0.5,
-  'black olives': 0.5,
-  'spicy peppers': 0.5,
-  'baked beans': 0.25,
-  mushrooms: 0.25,
-  pickles: 10,
-  pineapple: 15,
-  catnip: 0
-};
+const BasePrice = 10;
+const PizzaParlor = {
+  Sizes: {
+    small: BasePrice * 0.75,
+    medium: BasePrice,
+    large: BasePrice * 1.25
+  },
+  Sauces: {
+    tomato: 0,
+    pesto: 1.25,
+    bbq: 1,
+    'olive oil': 1.25
+  },
+  Cheeses: {
+    blend: 0,
+    double: 2,
+    vegan: 1
+  },
+  Toppings: {
+    pepperoni: 1,
+    sausage: 1,
+    ham: 1,
+    'bell pepper': 0.5,
+    'red onion': 0.5,
+    'black olives': 0.5,
+    'spicy peppers': 0.5,
+    'baked beans': 0.25,
+    mushrooms: 0.25,
+    pickles: 10,
+    pineapple: 15,
+    catnip: 0
+  }
+}
 
 function Pizza(size, sauce, cheese, toppings) {
   this.size = size || 'medium';
   this.sauce = sauce || 'tomato';
   this.cheese = cheese || 'blend';
   this.toppings = toppings || [];
-  this.basePrice = Sizes[this.size];
+  this.basePrice = PizzaParlor.Sizes[this.size];
 }
 
 Pizza.prototype.getPrice = function () {
   let tempTotal = this.basePrice;
 
-  tempTotal += Sauces[this.sauce];
-  tempTotal += Cheeses[this.cheese];
+  tempTotal += PizzaParlor.Sauces[this.sauce];
+  tempTotal += PizzaParlor.Cheeses[this.cheese];
 
   this.toppings.forEach(top => {
-    tempTotal += Toppings[top];
+    tempTotal += PizzaParlor.Toppings[top];
   });
 
   return tempTotal;
@@ -78,11 +80,12 @@ Order.prototype.getTotalPrice = function() {
   return tempTotal;
 };
 
-function createSelectTag(id, name, options) {
+function createSelectTag(name, options) {
+  let id = name.toLowerCase();
   let retString = `<label for='${id}'>${name}</label><select id='${id}' name='${name}'>`;
 
   Object.entries(options).forEach(([k, v]) => {
-    retString += `<option value='${k}'>${k.toUpperCase()} ($${v})</option>`;
+    retString += `<option name='${name}' value='${k}'>${k.toUpperCase()} ($${v})</option>`;
   });
   retString += `</select>`;
 
@@ -93,7 +96,7 @@ function createCheckBoxes(options) {
   let retString = '';
 
   Object.entries(options).forEach(([k, v]) => {
-    retString += `<label><input type='checkbox' id='${k}'>${k.toUpperCase()} ($${v})</label>`;
+    retString += `<label><input type='checkbox' name='${k}'>${k.toUpperCase()} ($${v})</label>`;
   });
 
   return retString;
@@ -103,14 +106,31 @@ function createCheckBoxes(options) {
 function startPizzaOrdering() {
   $('#pizza-order, #start-order').toggle();
   $('#customer-name, #customer-tel').prop('disabled', true);
-  createPizzaSelection();
+  let pizzaOrder = new Order();
+  createPizzaSelection(pizzaOrder);
 }
 
-function createPizzaSelection() {
-  $('#pizza-sizes').html(createSelectTag('sizes', 'Pizza Sizes', Sizes));
-  $('#pizza-sauces').html(createSelectTag('sauces', 'Pizza Sauces', Sauces));
-  $('#pizza-cheeses').html(createSelectTag('cheeses', 'Pizza Cheeses', Cheeses));
-  $('#pizza-toppings').html(createCheckBoxes(Toppings));
+function createPizzaSelection(newOrder) {
+  $('#pizza-sizes').html(createSelectTag('Sizes', PizzaParlor.Sizes));
+  $('#pizza-sauces').html(createSelectTag('Sauces', PizzaParlor.Sauces));
+  $('#pizza-cheeses').html(createSelectTag('Cheeses', PizzaParlor.Cheeses));
+  $('#pizza-toppings').html(createCheckBoxes(PizzaParlor.Toppings));
+}
+
+function addPizzaToOrder() {
+  let size = $('#pizza-sizes select option[name=Sizes]:selected').val();
+  let sauce = $('#pizza-sauces select option[name=Sauces]:selected').val();
+  let cheese = $('#pizza-cheeses select option[name=Cheeses]:selected').val();
+  let tops = [];
+  
+  $('#pizza-toppings input:checkbox:checked').each((i, e) => {
+    tops.push($(e).attr('name'));
+  });
+
+  let newPizza = new Pizza(size, sauce, cheese, tops);
+
+  pizzaOrder.addItems([newPizza]);
+  console.log(pizzaOrder);
 }
 
 function attachListeners() {
@@ -118,7 +138,8 @@ function attachListeners() {
     e.preventDefault();
     startPizzaOrdering();
   });
-  // $('#add-to-order').on('click');
+
+  $('#add-to-order').on('click', addPizzaToOrder);
 }
 
 $(document).ready(function() {
