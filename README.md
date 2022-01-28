@@ -54,6 +54,12 @@
 | Order constructor should return an Order object with items equal to the passed in items array, and a _totalPrice of 0 when called with no arguments | ```let o = new Order([pizza1, pizza2, pizza3])``` | ```o.items === [pizza1, pizza2, pizza3] && o._totalPrice === 0 // true``` |
 | Constructor should return an object with name, and telephone number included in it's properties when constructed | ```let o = new Order('john doe', '555-555-5555')``` | ```o.name === 'john doe' && o.tel === '555-555-5555' // true``` |
 
+#### Order.getTotalPrice()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| Method should return a total price for all items currently contained in Object instance | ```let myPizza = new Pizza(); let o = new Order(name, tel, myPizza)``` | ```o.getTotalPrice() === 7 // true``` |
+
 ## :lady_beetle: Known Bugs
 
 * If any others are found please feel free to open an issue or email me at wjwat at onionslice dot org
