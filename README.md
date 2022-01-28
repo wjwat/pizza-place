@@ -36,7 +36,7 @@
 | ---- | ---- | --------------- |
 | The constructor should return a Pizza object with the properties for size, sauce, cheese, and toppings assigned to itself. | ```let myPizza = new Pizza('medium', 'tomato', 'blend', ['pepperoni'])``` | ```Pizza {size: 'medium', sauce: 'tomato', cheese: 'blend', toppings: ['pepperoni']}``` |
 | Constructor should return an empty object when no values are passed into it's constructor. | ```let myPizza = new Pizza()``` | ```Pizza {size: undefined, sauce: undefined, cheese: undefined, toppings: undefined}``` |
-| Constructor should set sane defaults for an object (medium, tomato, blend, []) instantiated with no arguments | ```let myPizza = new Pizza()``` | ```Pizza {size: undefined, sauce: undefined, cheese: undefined, toppings: undefined}``` |
+| Constructor should set sane defaults for an object (medium, tomato, blend, []) instantiated with no arguments | ```let myPizza = new Pizza()``` | ```Pizza {size: 'medium', sauce: 'tomato', cheese: 'blend', toppings: []}``` |
 
 ## :lady_beetle: Known Bugs
 
