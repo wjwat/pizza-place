@@ -30,6 +30,7 @@ function Pizza(size, sauce, cheese, toppings) {
   this.sauce = sauce || 'tomato';
   this.cheese = cheese || 'blend';
   this.toppings = toppings || [];
+  this.basePrice = 7;
 };
 
 // UI
