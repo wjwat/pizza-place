@@ -102,15 +102,19 @@ function createCheckBoxes(options) {
   return retString;
 }
 
-// UI
+let newOrder = new Order();
+
 function startPizzaOrdering() {
   $('#pizza-order, #start-order').toggle();
   $('#customer-name, #customer-tel').prop('disabled', true);
-  let pizzaOrder = new Order();
-  createPizzaSelection(pizzaOrder);
+
+  newOrder.name = $('#customer-name').val();
+  newOrder.tel = $('#customer-tel').val();
+
+  createPizzaSelection();
 }
 
-function createPizzaSelection(newOrder) {
+function createPizzaSelection() {
   $('#pizza-sizes').html(createSelectTag('Sizes', PizzaParlor.Sizes));
   $('#pizza-sauces').html(createSelectTag('Sauces', PizzaParlor.Sauces));
   $('#pizza-cheeses').html(createSelectTag('Cheeses', PizzaParlor.Cheeses));
@@ -129,8 +133,23 @@ function addPizzaToOrder() {
 
   let newPizza = new Pizza(size, sauce, cheese, tops);
 
-  pizzaOrder.addItems([newPizza]);
-  console.log(pizzaOrder);
+  newOrder.addItems([newPizza]);
+
+  updateRunningTotal();
+}
+
+function updateRunningTotal() {
+  let pizzaList = '';
+  $('#receipt').show();
+  $('#running-total').text(newOrder.getTotalPrice());
+
+  newOrder.items.forEach(i => {
+    pizzaList += '<li>'
+    pizzaList += ``
+    console.log(i);
+  });
+
+  $('#list-of-pizzas').html(pizzaList);
 }
 
 function attachListeners() {
@@ -138,7 +157,6 @@ function attachListeners() {
     e.preventDefault();
     startPizzaOrdering();
   });
-
   $('#add-to-order').on('click', addPizzaToOrder);
 }
 
