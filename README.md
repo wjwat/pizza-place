@@ -30,7 +30,11 @@
 
 ## :clipboard: Specifications
 
-### 
+### Pizza()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| The constructor should return a Pizza object with the properties for size, sauce, cheese, and toppings assigned to itself. | ```let myPizza = new Pizza('medium', 'tomato', 'blend', ['pepperoni'])``` | ```Pizza {size: 'medium', sauce: 'tomato', cheese: 'blend', toppings: ['pepperoni']}``` |
 
 ## :lady_beetle: Known Bugs
 
