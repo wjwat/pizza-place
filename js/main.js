@@ -73,23 +73,19 @@ Order.prototype.getTotalPrice = function() {
 function createSelectTag(id, name, options) {
   let retString = `<label for='${id}'>${name}</label><select id='${id}' name='${name}'>`;
 
-  console.log(options);
   Object.entries(options).forEach(([k, v]) => {
-    console.log(k, v);
+    retString += `<option value='${k}'>${k.toUpperCase()} ($${v})</option>`;
   });
-  // optsArray.forEach(o => {
-  //   retString += `<option value='${o}'>${o.toUpperCase()}</option>`;
-  // });
   retString += `</select>`;
 
   return retString;
 }
 
-function createCheckBoxes(optsArray) {
+function createCheckBoxes(options) {
   let retString = '';
 
-  optsArray.forEach(o => {
-    retString += `<label><input type='checkbox' id='${o}'>${o.toUpperCase()}</label>`;
+  Object.entries(options).forEach(([k, v]) => {
+    retString += `<label><input type='checkbox' id='${k}'>${k.toUpperCase()} ($${v})</label>`;
   });
 
   return retString;
@@ -106,7 +102,7 @@ function createPizzaSelection() {
   $('#pizza-sizes').html(createSelectTag('sizes', 'Pizza Sizes', Sizes));
   $('#pizza-sauces').html(createSelectTag('sauces', 'Pizza Sauces', Sauces));
   $('#pizza-cheeses').html(createSelectTag('cheeses', 'Pizza Cheeses', Cheeses));
-  $('#pizza-toppings').html(createCheckBoxes(Object.keys(Toppings)));
+  $('#pizza-toppings').html(createCheckBoxes(Toppings));
 }
 
 function attachListeners() {

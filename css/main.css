@@ -53,12 +53,26 @@ input[disabled] {
   background-color: #A2AECB;
 }
 
+#receipt {
+  display: none;
+  border: 2px solid var(--color-med-gray);
+  border-radius: var(--border-radius);
+  padding: .5rem 1rem;
+  background-color: var(--color-bg);
+  max-width: var(--width-form);
+  margin: 2rem auto;
+}
+
+#receipt h5 {
+  margin-top: 1rem;
+}
+
 #pizza-order {
   display: none;
 }
 
 #pizza-toppings {
-  columns: 3;
+  columns: 2;
 }
 
 footer {
