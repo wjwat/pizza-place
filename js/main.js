@@ -26,10 +26,10 @@ const Toppings = {
 };
 
 function Pizza(size, sauce, cheese, toppings) {
-  this.size = size;
-  this.sauce = sauce;
-  this.cheese = cheese;
-  this.toppings = toppings;
+  this.size = size || 'medium';
+  this.sauce = sauce || 'tomato';
+  this.cheese = cheese || 'blend';
+  this.toppings = toppings || [];
 };
 
 // UI
