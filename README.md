@@ -50,8 +50,8 @@
 
 | Test | Code | Expected Output |
 | ---- | ---- | --------------- |
-| Order constructor should return an Order object with items = [], and totalPrice = 0 when called with no arguments | ```let o = new Order()``` | ```o.totalPrice === 0 && o.items.length === 0 // true``` |
-| Order constructor should return an Order object with items equal to the passed in items array, and a totalPrice of 0 when called with no arguments | ```let o = new Order([pizza1, pizza2, pizza3])``` | ```o.items === [pizza1, pizza2, pizza3]``` |
+| Order constructor should return an Order object with items = [], and _totalPrice = 0 when called with no arguments | ```let o = new Order()``` | ```o._totalPrice === 0 && o.items.length === 0 // true``` |
+| Order constructor should return an Order object with items equal to the passed in items array, and a _totalPrice of 0 when called with no arguments | ```let o = new Order([pizza1, pizza2, pizza3])``` | ```o.items === [pizza1, pizza2, pizza3] && o._totalPrice === 0 // true``` |
 
 ## :lady_beetle: Known Bugs
 
