@@ -48,6 +48,11 @@ Pizza.prototype.getPrice = function () {
   return tempTotal;
 }
 
+function Order(items) {
+  this.items = items || [];
+  this._totalPrice = 0;
+}
+
 function createSelectTag(id, name, optsArray) {
   let retString = `<label for='${id}'>${name}</label><select id='${id}' name='${name}'>`;
 
