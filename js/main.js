@@ -70,6 +70,13 @@ Order.prototype.addItems = function(newItems) {
   this._totalPrice = this.getTotalPrice();
 }
 
+Order.prototype.removeItem = function(index) {
+  if (index < this.items.length) {
+    delete this.items[index];
+    this._totalPrice = this.getTotalPrice();
+  }
+};
+
 Order.prototype.getTotalPrice = function() {
   let tempTotal = 0;
 
@@ -140,18 +147,25 @@ function addPizzaToOrder() {
   updateRunningTotal();
 }
 
+function removePizzaFromOrder(sel) {
+  sel.currentTarget.value
+  console.log();
+
+  $(this).val();
+}
+
 function updateRunningTotal() {
   let pizzaList = '';
   $('#receipt').show();
   $('#running-total').text('$' + newOrder.getTotalPrice().toFixed(2));
 
-  newOrder.items.forEach(i => {
-    pizzaList += '<li>'
-    pizzaList += `${itemSpan(i.size)} pizza, ${itemSpan(i.sauce)} base, ${itemSpan(i.cheese)} cheese`;
+  newOrder.items.forEach((e, i) => {
+    pizzaList +=`<li value='${i}'>`
+    pizzaList += `${itemSpan(e.size)} pizza, ${itemSpan(e.sauce)} base, ${itemSpan(e.cheese)} cheese`;
 
-    if (i.toppings != 0) {
+    if (e.toppings != 0) {
       pizzaList += ', and '
-      pizzaList += i.toppings.map(upper => itemSpan(upper)).join(', ');
+      pizzaList += e.toppings.map(upper => itemSpan(upper)).join(', ');
     }
     pizzaList += '.</li>';
   });
@@ -165,6 +179,7 @@ function attachListeners() {
     startPizzaOrdering();
   });
   $('#add-to-order').on('click', addPizzaToOrder);
+  $('#list-of-pizzas').on('click', 'li', removePizzaFromOrder);
 }
 
 let newOrder = new Order();
