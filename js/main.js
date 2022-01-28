@@ -52,7 +52,7 @@ function createSelectTag(id, name, optsArray) {
   let retString = `<label for='${id}'>${name}</label><select id='${id}' name='${name}'>`;
 
   optsArray.forEach(o => {
-    retString += `<option value=${o}>${o.toUpperCase()}</option>`;
+    retString += `<option value='${o}'>${o.toUpperCase()}</option>`;
   });
   retString += `</select>`
 
