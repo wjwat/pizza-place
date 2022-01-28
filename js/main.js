@@ -35,7 +35,7 @@ function Pizza(size, sauce, cheese, toppings) {
   this.sauce = sauce || 'tomato';
   this.cheese = cheese || 'blend';
   this.toppings = toppings || [];
-  this.basePrice = BasePrice[this.size];
+  this.basePrice = Sizes[this.size];
 }
 
 Pizza.prototype.getPrice = function () {
@@ -48,8 +48,6 @@ Pizza.prototype.getPrice = function () {
     tempTotal += Toppings[top];
   });
 
-  tempTotal *= Sizes[this.size];
-
   return tempTotal;
 };
 
@@ -57,7 +55,17 @@ function Order(name, tel, items) {
   this.name = name;
   this.tel = tel;
   this.items = items || [];
-  this._totalPrice = 0;
+  this._totalPrice = this.getTotalPrice();
+}
+
+Order.prototype.addItems = function(newItems) {
+  if(newItems) {
+    newItems.forEach(i => {
+      this.items.push(i);
+    });
+  }
+
+  this._totalPrice = this.getTotalPrice();
 }
 
 Order.prototype.getTotalPrice = function() {
