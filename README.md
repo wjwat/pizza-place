@@ -52,6 +52,7 @@
 | ---- | ---- | --------------- |
 | Order constructor should return an Order object with items = [], and _totalPrice = 0 when called with no arguments | ```let o = new Order()``` | ```o._totalPrice === 0 && o.items.length === 0 // true``` |
 | Order constructor should return an Order object with items equal to the passed in items array, and a _totalPrice of 0 when called with no arguments | ```let o = new Order([pizza1, pizza2, pizza3])``` | ```o.items === [pizza1, pizza2, pizza3] && o._totalPrice === 0 // true``` |
+| Constructor should return an object with name, and telephone number included in it's properties when constructed | ```let o = new Order('john doe', '555-555-5555')``` | ```o.name === 'john doe' && o.tel === '555-555-5555' // true``` |
 
 ## :lady_beetle: Known Bugs
 
