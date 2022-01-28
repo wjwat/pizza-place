@@ -46,6 +46,12 @@
 | A pizza object created with default selections should return a total price of 7 | ```myPizza.getPrice()``` | ```myPizza.getPrice() === 7 // true``` |
 | A pizza object created with a size of `large` should, and all other options default, should return a total price of 8.75 | ```let p2 = new Pizza('large')``` | ```p2.getPrice() === 8.75 // true``` |
 
+### Order()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| Order constructor should return an Order object with items = [], and totalPrice = 0 when called with no arguments | ```let o = new Order()``` | ```o.totalPrice === 0 && o.items.length === 0 // true``` |
+| Order constructor should return an Order object with items equal to the passed in items array, and a totalPrice of 0 when called with no arguments | ```let o = new Order([pizza1, pizza2, pizza3])``` | ```o.items === [pizza1, pizza2, pizza3]``` |
 
 ## :lady_beetle: Known Bugs
 
