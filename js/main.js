@@ -48,7 +48,9 @@ Pizza.prototype.getPrice = function () {
   return tempTotal;
 }
 
-function Order(items) {
+function Order(name, tel, items) {
+  this.name = name;
+  this.tel = tel;
   this.items = items || [];
   this._totalPrice = 0;
 }
@@ -64,11 +66,10 @@ function createSelectTag(id, name, optsArray) {
   return retString;
 };
 
-function createCheckBoxes(id, name, optsArray) {
+function createCheckBoxes(optsArray) {
   let retString = '';
 
   optsArray.forEach(o => {
-    console.log(o);
     retString += `<label><input type='checkbox' id='${o}'>${o.toUpperCase()}</label>`
   });
 
@@ -99,7 +100,3 @@ function attachListeners() {
 $(document).ready(function() {
   attachListeners();
 });
-
-let n = new Pizza();
-console.log(n);
-console.log(n.getPrice());
