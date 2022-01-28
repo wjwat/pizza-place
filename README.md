@@ -16,7 +16,7 @@
 
 ## :gear: Setup/Installation & Usage Instructions
 
-- Go to TODO:add url in any modern browser.
+- Go to https://wjwat.github.io/pizza-place/ in any modern browser.
 
 *or*
 
@@ -26,7 +26,7 @@
 
 *then*
 
-- TODO: write some instructions
+- 
 
 ## :clipboard: Specifications
 
@@ -54,6 +54,18 @@
 | Order constructor should return an Order object with items equal to the passed in items array, and a _totalPrice of 0 when called with no arguments | ```let o = new Order([pizza1, pizza2, pizza3])``` | ```o.items === [pizza1, pizza2, pizza3] && o._totalPrice === 0 // true``` |
 | Constructor should return an object with name, and telephone number included in it's properties when constructed | ```let o = new Order('john doe', '555-555-5555')``` | ```o.name === 'john doe' && o.tel === '555-555-5555' // true``` |
 
+#### Order.addItems()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| Method accepts an array of items to add to current Order object | ```let p = new Pizza(); let o = new Order(); o.addItems([p]);``` | ```o.items[0] === n // true``` |
+
+#### Order.removeItem()
+
+| Test | Code | Expected Output |
+| ---- | ---- | --------------- |
+| Method accepts an index which it will use to delete the item in that spot in the object's items array | ```newOrder.addItems([item1, item2]); newOrder.removeItem(0);``` | ```newOrder.items.length === 0 // true`` |
+
 #### Order.getTotalPrice()
 
 | Test | Code | Expected Output |
@@ -61,22 +73,26 @@
 | Method should return a total price for all items currently contained in Object instance | ```let myPizza = new Pizza(); let o = new Order(name, tel, [myPizza])``` | ```o.getTotalPrice() === 7 // true``` |
 | Method should return a total price for all items currently contained in Object instance | ```let m1 = new Pizza(); let m2 = new Pizza(); let o = new Order(name, tel [m1, m2]);``` | ```o.getTotalPrice() === 14 // true``` |
 
-#### Order.addItems()
-
-| Test | Code | Expected Output |
-| ---- | ---- | --------------- |
-| Method accepts an array of items to add to current Order object | ```let p = new Pizza(); let o = new Order(); o.addItems([p]);``` | ```o.items[0] === n // true``` |
-
 ### itemSpan()
 
 | Test | Code | Expected Output |
 | ---- | ---- | --------------- |
 | Accepts a string, and returns that string wrapped in a span element with a class of 'items' | ```let x = itemSpan('pizza')``` | ```x === '<span class='items'>pizza</span>'``` |
 
+## :world_map: Roadmap
+
+* Differentiate items in receipt by color (cheese = yellow, sauce = red, etc)
+* Extend ability to include sides/drinks
+* Building strings to put them in HTML isn't the cleanest thing to do. It would
+  be better to move all that stuff somewhere else, or tap into a library that
+  has the ability to.
+
 ## :lady_beetle: Known Bugs
 
 TODO: Add bugs I know about
-* If any others are found please feel free to open an issue or email me at wjwat at onionslice dot org
+* If any others are found please feel free to open an issue or email me at wjwat
+  at onionslice dot org
+* Tax is currently not added to total.
 
 ## :warning: License
 
