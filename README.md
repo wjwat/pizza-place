@@ -16,7 +16,7 @@
 
 ## :gear: Setup/Installation & Usage Instructions
 
-- Go to !!!URL!!! in any modern browser.
+- Go to TODO:add url in any modern browser.
 
 *or*
 
@@ -26,7 +26,7 @@
 
 *then*
 
-- !!!WRITE SOME INSTRUCTIONS!!!
+- TODO: write some instructions
 
 ## :clipboard: Specifications
 
@@ -63,6 +63,7 @@
 
 ## :lady_beetle: Known Bugs
 
+TODO: Add bugs I know about
 * If any others are found please feel free to open an issue or email me at wjwat at onionslice dot org
 
 ## :warning: License
