@@ -46,7 +46,7 @@ Pizza.prototype.getPrice = function () {
   tempTotal += PizzaParlor.Sauces[this.sauce];
   tempTotal += PizzaParlor.Cheeses[this.cheese];
 
-  this.toppings.forEach(top => {
+  this.toppings.forEach((top) => {
     tempTotal += PizzaParlor.Toppings[top];
   });
 
@@ -62,13 +62,13 @@ function Order(name, tel, items) {
 
 Order.prototype.addItems = function(newItems) {
   if(newItems) {
-    newItems.forEach(i => {
+    newItems.forEach((i) => {
       this.items.push(i);
     });
   }
 
   this._totalPrice = this.getTotalPrice();
-}
+};
 
 Order.prototype.removeItem = function(index) {
   if (index < this.items.length) {
@@ -110,7 +110,7 @@ function createCheckBoxes(options) {
 }
 
 function itemSpan(str) {
-  return `<span class='items'>${str.toUpperCase()}</span>`
+  return `<span class='items'>${str.toUpperCase()}</span>`;
 }
 
 function startPizzaOrdering() {
@@ -158,11 +158,11 @@ function updateRunningTotal() {
   $('#running-total').text('$' + newOrder.getTotalPrice().toFixed(2));
 
   newOrder.items.forEach((e, i) => {
-    pizzaList +=`<li value='${i}'>`
+    pizzaList +=`<li value='${i}'>`;
     pizzaList += `${itemSpan(e.size)} pizza, ${itemSpan(e.sauce)} base, ${itemSpan(e.cheese)} cheese`;
 
     if (e.toppings != 0) {
-      pizzaList += ', and '
+      pizzaList += ', and ';
       pizzaList += e.toppings.map(upper => itemSpan(upper)).join(', ');
     }
     pizzaList += '.</li>';

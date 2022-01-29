@@ -26,7 +26,11 @@
 
 *then*
 
-- 
+- Type in your name & phone number in the provided boxes
+- Click `Start Order`
+- Make your selections for your preferred pizza
+  * Add as many pizzas as you'd like with the `Add to Order` button
+- Click `Finish Order` when you're done!
 
 ## :clipboard: Specifications
 
@@ -89,10 +93,15 @@
 
 ## :lady_beetle: Known Bugs
 
-TODO: Add bugs I know about
 * If any others are found please feel free to open an issue or email me at wjwat
   at onionslice dot org
 * Tax is currently not added to total.
+* Clicking `Finish Order` currently takes you nowhere.
+* User can go to the finished order mode without having added a pizza.
+* We're abusing 'submit' to make the browser check to make sure required fields
+  are filled in, but we should do our own checking.
+* The code is a bit all over the place. Refactoring and putting things in
+  libraries would be fantastic.
 
 ## :warning: License
 
