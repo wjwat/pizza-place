@@ -1,4 +1,4 @@
-# Blue Monday Pizza Parlor
+# :pizza: Blue Monday Pizza Parlor :pizza:
 
 #### By [Will W.](https://wjwat.com/)
 
