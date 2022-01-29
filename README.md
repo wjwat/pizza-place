@@ -7,7 +7,8 @@
 ## :computer: Technologies Used
 
 * HTML & CSS
-* Javascript
+* JavaScript
+  - JS Objects
   - [YACCK](https://sphars.github.io/yacck/)
   - [JQuery](https://jquery.com/)
 * My cat _Risky Business_-ing his way across the keyboard.
