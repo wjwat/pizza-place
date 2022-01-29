@@ -148,10 +148,8 @@ function addPizzaToOrder() {
 }
 
 function removePizzaFromOrder(sel) {
-  sel.currentTarget.value
-  console.log();
-
-  $(this).val();
+  delete newOrder.items[sel.currentTarget.value];
+  updateRunningTotal();
 }
 
 function updateRunningTotal() {
