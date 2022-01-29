@@ -15,6 +15,8 @@
 
 ## :memo: Description
 
+This is a simple page that mocks an order form for a pizza place. You are currently able to select as many different pizzas as you'd like for a single order and watch as your total updates. You can also remove any pizzas added to your order and watch your total go down! I've written it to be as flexible as possible (or as possible as I can currently make it) to add items and adjust prices at will in the source file for the JS.
+
 ## :gear: Setup/Installation & Usage Instructions
 
 - Go to https://wjwat.github.io/pizza-place/ in any modern browser.
