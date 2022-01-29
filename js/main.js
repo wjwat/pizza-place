@@ -178,6 +178,11 @@ function attachListeners() {
   });
   $('#add-to-order').on('click', addPizzaToOrder);
   $('#list-of-pizzas').on('click', 'li', removePizzaFromOrder);
+  $('#finish-order').on('click', () => {
+    $('form').hide();
+    $('#list-of-pizzas').off('click', 'li');
+    alert('WIP!');
+  });
 }
 
 let newOrder = new Order();
