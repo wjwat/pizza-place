@@ -71,7 +71,7 @@ This is a simple page that mocks an order form for a pizza place. You are curren
 
 | Test | Code | Expected Output |
 | ---- | ---- | --------------- |
-| Method accepts an index which it will use to delete the item in that spot in the object's items array | ```newOrder.addItems([item1, item2]); newOrder.removeItem(0);``` | ```newOrder.items.length === 0 // true`` |
+| Method accepts an index which it will use to delete the item in that spot in the object's items array | ```newOrder.addItems([item1, item2]); newOrder.removeItem(0);``` | ```newOrder.items.length === 0 // true``` |
 
 #### Order.getTotalPrice()
 
