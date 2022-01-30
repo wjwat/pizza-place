@@ -181,7 +181,6 @@ function attachListeners() {
   $('#finish-order').on('click', () => {
     $('form').hide();
     $('#list-of-pizzas').off('click', 'li');
-    alert('WIP!');
   });
 }
 
