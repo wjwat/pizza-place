@@ -49,8 +49,8 @@ input[disabled] {
   margin: 2rem auto;
 }
 
-#receipt h5 {
-  margin-top: 1rem;
+#receipt li {
+  line-height: 1.1rem;
 }
 
 #pizza-order {
@@ -82,6 +82,8 @@ input[disabled] {
 
 .order-total {
   text-align: right;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 footer {

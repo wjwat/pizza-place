@@ -19,7 +19,7 @@
     </div>
   </header>
   <main>
-    <h2>BUY A PIZZA ALREADY</h2>
+    <h2 id='friendly-greeting'>BUY A PIZZA ALREADY</h2>
     <form>
       <fieldset>
         <label>Name:
@@ -41,7 +41,12 @@
     </form>
     <div id='receipt'>
       <ul id='list-of-pizzas' class='removable-items'></ul>
-      <h5 class='order-total'>Total: <span id='running-total'></span></h5>
+      <div class='order-total'>
+        <p>
+          Tax: <span id='tax-total'></span><br />
+          Total: <span id='running-total'></span>
+        </p>
+      </div>
     </div>
   </main>
   <footer>

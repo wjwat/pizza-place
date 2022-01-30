@@ -1,4 +1,5 @@
 const BasePrice = 10;
+const TaxRate = 0.0825;
 const PizzaParlor = {
   Sizes: {
     small: BasePrice * 0.75,
@@ -14,7 +15,8 @@ const PizzaParlor = {
   Cheeses: {
     blend: 0,
     double: 2,
-    vegan: 1
+    vegan: 1,
+    no: -1
   },
   Toppings: {
     pepperoni: 1,
@@ -154,8 +156,11 @@ function removePizzaFromOrder(sel) {
 
 function updateRunningTotal() {
   let pizzaList = '';
+  let total = newOrder.getTotalPrice();
+  let tax = (total * TaxRate);
   $('#receipt').show();
-  $('#running-total').text('$' + newOrder.getTotalPrice().toFixed(2));
+  $('#tax-total').text('$' + tax.toFixed(2));
+  $('#running-total').text('$' + (total + tax).toFixed(2));
 
   newOrder.items.forEach((e, i) => {
     pizzaList +=`<li value='${i}'>`;
@@ -176,7 +181,7 @@ function finishOrder() {
   $('form').hide();
   pizzaList.off('click', 'li');
   pizzaList.removeClass('removable-items');
-
+  $('#friendly-greeting').text('TOOK YOU LONG ENOUGH');
 }
 
 function attachListeners() {
