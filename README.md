@@ -109,6 +109,8 @@ This is a simple page that mocks an order form for a pizza place. You are curren
   leaves the array that has all those items the same size so when we loop over
   that array to display the items it will loop over empty items. I'm not sure
   how much of a bug this is, but it's something to note.
+* toFixed rounds inconsistently which means our math will look a little weird
+  on our receipts. no bueno.
 
 ## :warning: License
 
