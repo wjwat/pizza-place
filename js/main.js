@@ -148,7 +148,7 @@ function addPizzaToOrder() {
 }
 
 function removePizzaFromOrder(sel) {
-  delete newOrder.items[sel.currentTarget.value];
+  newOrder.removeItem(sel.currentTarget.value);
   updateRunningTotal();
 }
 
