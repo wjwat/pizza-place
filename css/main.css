@@ -61,6 +61,10 @@ input[disabled] {
   columns: 2;
 }
 
+#finish {
+  display: none;
+}
+
 .removable-items li:before {
   content: 'X';
   display: none;
@@ -97,4 +101,30 @@ footer div p {
 
 #lilguy:hover:after {
   content: " <(HOT PIES COMIN' AT YA!)";
+}
+
+.angry {
+  color: darkred;
+  font-weight: bold;
+}
+
+.fancy-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(to right, #c03a48, #d35d39, #b3801a, #60aa20, #1a366e, #a83293, #c03a48);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 3s ease-in-out infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+  0%,100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
 }

@@ -4,19 +4,19 @@ const PizzaParlor = {
   Sizes: {
     small: BasePrice * 0.75,
     medium: BasePrice,
-    large: BasePrice * 1.25
+    large: BasePrice * 1.25,
   },
   Sauces: {
     tomato: 0,
     pesto: 1.25,
     bbq: 1,
-    'olive oil': 1.25
+    'olive oil': 1.25,
   },
   Cheeses: {
     blend: 0,
     double: 2,
     vegan: 1,
-    no: -1
+    no: -1,
   },
   Toppings: {
     pepperoni: 1,
@@ -30,7 +30,7 @@ const PizzaParlor = {
     mushrooms: 0.25,
     pickles: 10,
     pineapple: 15,
-    catnip: 0
+    catnip: 0,
   }
 };
 
@@ -178,11 +178,21 @@ function updateRunningTotal() {
 }
 
 function finishOrder() {
+  if (newOrder.items.length === 0) {
+    return;
+  }
+
+  let [driver, cook] = getTwo();
+
   pizzaList = $('#list-of-pizzas');
   $('form').hide();
   pizzaList.off('click', 'li');
   pizzaList.removeClass('removable-items');
   $('#friendly-greeting').text('TOOK YOU LONG ENOUGH');
+  $('#driver').text(driver);
+  $('#cook').text(cook);
+  $('#order-time').text(Math.ceil(Math.random() * 50) + 15);
+  $('#finish').show();
 }
 
 function attachListeners() {
@@ -194,6 +204,9 @@ function attachListeners() {
   $('#list-of-pizzas').on('click', 'li', removePizzaFromOrder);
   $('#finish-order').on('click', finishOrder);
 }
+
+// Something smells a little eggy right here.
+function shuffle(array){var m=array.length,t,i;while(m){i=Math.floor(Math.random()*m--);t=array[m];array[m]=array[i];array[i]=t}return array}function getTwo(){let names=shuffle(['BEN','BROOKE','CAMERON','CATHY','CHAR','ELENA','ERIK','JAMES','JASMINE','JIAQI','LOUIE','MICHAEL','MIKE','NINA','PATRICK','RACHEL','RYAN','VERONICA']);return[names[0],names[1]]}
 
 let newOrder = new Order();
 
