@@ -75,6 +75,7 @@ Order.prototype.addItems = function(newItems) {
 Order.prototype.removeItem = function(index) {
   if (index < this.items.length) {
     delete this.items[index];
+    this.items = this.items.filter(Boolean);
     this._totalPrice = this.getTotalPrice();
   }
 };
