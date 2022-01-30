@@ -171,6 +171,14 @@ function updateRunningTotal() {
   $('#list-of-pizzas').html(pizzaList);
 }
 
+function finishOrder() {
+  pizzaList = $('#list-of-pizzas');
+  $('form').hide();
+  pizzaList.off('click', 'li');
+  pizzaList.removeClass('removable-items');
+
+}
+
 function attachListeners() {
   $('form').on('submit', e => {
     e.preventDefault();
@@ -178,11 +186,7 @@ function attachListeners() {
   });
   $('#add-to-order').on('click', addPizzaToOrder);
   $('#list-of-pizzas').on('click', 'li', removePizzaFromOrder);
-  $('#finish-order').on('click', () => {
-    $('form').hide();
-    $('#list-of-pizzas').off('click', 'li');
-    alert('WIP!');
-  });
+  $('#finish-order').on('click', finishOrder);
 }
 
 let newOrder = new Order();

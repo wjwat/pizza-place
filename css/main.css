@@ -61,12 +61,12 @@ input[disabled] {
   columns: 2;
 }
 
-#list-of-pizzas li:before {
+.removable-items li:before {
   content: 'X';
   display: none;
 }
 
-#list-of-pizzas li:hover {
+.removable-items li:hover {
   background-color: #A2AECB;
   border-radius: var(--border-radius);
   font-weight: bold;
@@ -75,9 +75,13 @@ input[disabled] {
   left: -1em;
 }
 
-#list-of-pizzas li:hover:before {
+.removable-items li:hover:before {
   display: inline-block;
   margin-right: 8px;
+}
+
+.order-total {
+  text-align: right;
 }
 
 footer {
