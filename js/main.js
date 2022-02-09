@@ -5,11 +5,13 @@ const PizzaParlor = {
     small: BasePrice * 0.75,
     medium: BasePrice,
     large: BasePrice * 1.25,
+    xlarge: BasePrice * 1.75,
   },
   Sauces: {
     tomato: 0,
     pesto: 1.25,
     bbq: 1,
+    curry: 1,
     'olive oil': 1.25,
   },
   Cheeses: {
@@ -118,7 +120,7 @@ function itemSpan(str) {
 
 function startPizzaOrdering() {
   $('#pizza-order, #start-order').toggle();
-  $('#customer-name, #customer-tel').prop('disabled', true);
+  $('#customer-name, #customer-tel, #customer-addr').prop('disabled', true);
 
   newOrder.name = $('#customer-name').val();
   newOrder.tel = $('#customer-tel').val();

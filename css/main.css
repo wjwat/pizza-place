@@ -31,6 +31,10 @@ input[disabled] {
   background-color: #A2AECB;
 }
 
+textarea[disabled] {
+  background-color: #A2AECB;
+}
+
 .items {
   color: #F24949;
 }
